@@ -31,7 +31,15 @@ document.querySelector('button').addEventListener('click', function () {
           video.classList.remove('none');
           video.classList.add('block');
 
-          scanner.start(cameras[0]);
+          var selectedCam = cameras[0];
+          cameras.forEach(c => {
+            if (c.name.indexOf('back') != -1) {
+              selectedCam = c;
+              return false;
+            }
+          });
+
+          scanner.start(selectedCam);
         } else {
           console.error('No cameras found.');
         }
