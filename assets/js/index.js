@@ -1,5 +1,6 @@
 let scanner = new Instascan.Scanner({
   video: document.getElementById('preview'),
+  mirror: false,
 });
 
 const video = document.querySelector('video');
